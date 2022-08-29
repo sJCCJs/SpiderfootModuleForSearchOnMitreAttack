@@ -6,7 +6,6 @@
 # Author:      José Carlos Serrano Sácnhez <fc.jc.ss@gmail.com>
 #
 # Created:     18/08/2022
-# Licence:     GPL
 # -------------------------------------------------------------------------------
 # importar la funcion de busqueda
 from googlesearch import search
