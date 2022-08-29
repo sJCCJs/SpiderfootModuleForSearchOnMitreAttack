@@ -1,0 +1,34 @@
+#!/bin/python3
+# -------------------------------------------------------------------------------
+# Name:         mitresearch
+# Purpose:      searching on MitreAtt&ck with a google dork.
+#
+# Author:      José Carlos Serrano Sácnhez <fc.jc.ss@gmail.com>
+#
+# Created:     18/08/2022
+# Licence:     GPL
+# -------------------------------------------------------------------------------
+# importar la funcion de busqueda
+from googlesearch import search
+import getopt
+import sys
+def main(argv): 
+    try:
+        args = getopt.getopt(argv, "q:",["query"])
+    except getopt.GetoptError:
+        print("parametro invalido")
+        sys.exit(2)
+    
+# la consulta de busqueda la vamos a obtener de la entrada por teclado
+main(sys.argv[1:])
+consulta = "site:https://attack.mitre.org/ " + '"' + sys.argv[2] + '"'
+tld = "org" #dominio de busqueda
+lang = "en" #idioma de las busquedas
+start=0 #resultado inicial
+stop=50 #Numero de resultados
+pause=2.0 #Pausa entre peticiones
+# la busqueda se realiza con el modulo search y se guarda en la variable results
+results = search(consulta,stop=stop,pause=pause)
+# hacemos un recorrido de los resultados con un bucle for e imprimimos , cada resultado es una URL
+for dominio in results:
+    print(dominio)
